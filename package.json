@@ -2,14 +2,21 @@
   "name": "warmy-task",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "task manager",
   "main": "server.js",
   "scripts": {
     "dev": "npx nodemon src/server.js",
+    "dev:migration": "prisma migrate dev",
     "lint": "eslint src --ext .js --fix"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "tasks",
+    "back-end",
+    "postgres",
+    "express",
+    "nodejs"
+  ],
+  "author": "Josana Klagenberg",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.16.0",
