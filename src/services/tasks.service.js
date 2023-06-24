@@ -38,7 +38,11 @@ async function updateTask(id, task) {
 }
 
 async function deleteTask(id) {
-  await tasksRepository.deleteTask(id)
+  const taskExists = await tasksRepository.findTaskById(id)
+
+  if(taskExists) {
+    await tasksRepository.deleteTask(id)
+  }
 }
 
 const tasksService = {
