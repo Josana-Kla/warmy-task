@@ -33,7 +33,15 @@ export async function getTaskById(req, res) {
 }
 
 export async function updateTask(req, res) {
-  console.log("t")
+  const id = Number(req.params.id)
+  const task = req.body
+
+  try {
+    await tasksService.updateTask(id, task) 
+    return res.sendStatus(httpStatus.OK);
+  } catch (error) {
+    return res.status(httpStatus.BAD_REQUEST).send(error);
+  }
 }
 
 export async function removeTask(req, res) {

@@ -2,5 +2,6 @@ import joi from 'joi'
 
 export const taskSchema = joi.object({
   title: joi.string().required(),
-  description: joi.string()
+  description: joi.string(),
+  status: joi.boolean().default(false)
 })

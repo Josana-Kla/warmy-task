@@ -2,7 +2,10 @@ import prisma from '../config/prisma.js'
 
 async function createTask(task) {
   return prisma.task.create({
-    data: task
+    data: {
+      title: task.title,
+      description: task.description,
+    }
   })
 }
 
@@ -14,6 +17,19 @@ async function findTaskById(id) {
   return prisma.task.findUniqueOrThrow({
     where: {
       id,
+    }
+  })
+}
+
+async function updateTask(id, task) {
+  return prisma.task.update({
+    where: {
+      id
+    }, 
+    data: {
+      title: task.title,
+      description: task.description,
+      status: task.status,
     }
   })
 }
@@ -30,6 +46,7 @@ const tasksRepository = {
   createTask,
   findAllTasks,
   findTaskById,
+  updateTask,
   deleteTask,
 }
 
