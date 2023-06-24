@@ -18,9 +18,16 @@ async function findAllTasks() {
   return tasks
 }
 
+async function findTaskById(id) {
+  const taskById = await tasksRepository.findTaskById(id)
+
+  return taskById
+}
+
 const tasksService = {
   createTask,
   findAllTasks,
+  findTaskById,
 }
 
 export default tasksService

@@ -10,9 +10,18 @@ async function findAllTasks() {
   return prisma.task.findMany()
 }
 
+async function findTaskById(id) {
+  return prisma.task.findUniqueOrThrow({
+    where: {
+      id,
+    }
+  })
+}
+
 const tasksRepository = {
   createTask,
   findAllTasks,
+  findTaskById,
 }
 
 export default tasksRepository

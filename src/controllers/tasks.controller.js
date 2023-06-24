@@ -22,7 +22,14 @@ export async function getTasks(res) {
 }
 
 export async function getTaskById(req, res) {
-  console.log("t")
+  const id = Number(req.params.id)
+
+  try {
+    const taskById = await tasksService.findTaskById(id)
+    return res.status(httpStatus.OK).send(taskById)
+  } catch (error) {
+    return res.sendStatus(httpStatus.NOT_FOUND)
+  }
 }
 
 export async function updateTask(req, res) {
