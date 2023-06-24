@@ -24,10 +24,15 @@ async function findTaskById(id) {
   return taskById
 }
 
+async function deleteTask(id) {
+  await tasksRepository.deleteTask(id)
+}
+
 const tasksService = {
   createTask,
   findAllTasks,
   findTaskById,
+  deleteTask,
 }
 
 export default tasksService

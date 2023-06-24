@@ -18,10 +18,19 @@ async function findTaskById(id) {
   })
 }
 
+async function deleteTask(id) {
+  return prisma.task.delete({
+    where: {
+      id,
+    }
+  })
+}
+
 const tasksRepository = {
   createTask,
   findAllTasks,
   findTaskById,
+  deleteTask,
 }
 
 export default tasksRepository

@@ -12,7 +12,7 @@ export async function createTask(req, res) {
   }
 }
 
-export async function getTasks(res) {
+export async function getTasks(req, res) {
   try {
     const tasks = await tasksService.findAllTasks()
     return res.status(httpStatus.OK).send(tasks);
@@ -37,6 +37,13 @@ export async function updateTask(req, res) {
 }
 
 export async function removeTask(req, res) {
-  console.log("t")
+  const id = Number(req.params.id)
+
+  try {
+    await tasksService.deleteTask(id)
+    return res.sendStatus(httpStatus.OK)
+  } catch (error) {
+    return res.sendStatus(httpStatus.NOT_FOUND)
+  }
 }
 
