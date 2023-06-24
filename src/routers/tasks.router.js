@@ -4,10 +4,10 @@ import { createTask, getTaskById, getTasks, removeTask, updateTask } from '../co
 const tasksRouter = Router()
 
 tasksRouter
-  .post("/task", createTask)
-  .get("/task", getTasks)
-  .get("/task/:id", getTaskById)
-  .put("/task/:id", updateTask)
-  .delete("/task/:id", removeTask)
+  .post("/", createTask)
+  .get("/", getTasks)
+  .get("/:id", getTaskById)
+  .put("/:id", updateTask)
+  .delete("/:id", removeTask)
 
 export default tasksRouter
