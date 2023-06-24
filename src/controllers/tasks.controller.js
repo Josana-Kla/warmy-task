@@ -12,8 +12,13 @@ export async function createTask(req, res) {
   }
 }
 
-export async function getTasks(req, res) {
-  console.log("t")
+export async function getTasks(res) {
+  try {
+    const tasks = await tasksService.findAllTasks()
+    return res.status(httpStatus.OK).send(tasks);
+  } catch (error) {
+    return res.sendStatus(httpStatus.NOT_FOUND);
+  }
 }
 
 export async function getTaskById(req, res) {

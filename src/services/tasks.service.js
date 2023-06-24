@@ -12,8 +12,15 @@ async function createTask(task) {
   await tasksRepository.createTask(task)
 }
 
+async function findAllTasks() {
+  const tasks = await tasksRepository.findAllTasks()
+
+  return tasks
+}
+
 const tasksService = {
   createTask,
+  findAllTasks,
 }
 
 export default tasksService

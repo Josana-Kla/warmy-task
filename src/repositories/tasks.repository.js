@@ -6,10 +6,13 @@ async function createTask(task) {
   })
 }
 
+async function findAllTasks() {
+  return prisma.task.findMany()
+}
 
 const tasksRepository = {
   createTask,
-
+  findAllTasks,
 }
 
 export default tasksRepository
