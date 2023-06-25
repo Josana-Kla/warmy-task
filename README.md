@@ -36,8 +36,11 @@
 ## <a name=“descrição-do-projeto”>🧾Descrição do projeto<a/>  
 
 <p align="justify">
-O projeto foi feito utilizando principalmente Node.js com Express.js, utilizando Prisma ORM para se conectar com o banco de dados PostgreSQL, com intuito de criar uma API para gerenciar tarefas. A aplicação conta com um CRUD de tarefas com suas regras de negócio básicas.
-O projeto foi estruturado pensando em uma arquitetura multicamadas e utilizando princípios do clean code para melhor organização e clareza do código.
+O projeto é uma API de gerenciamento de tarefas. A aplicação conta com um CRUD de tarefas com suas regras de negócio básicas.
+
+As tecnologias utilizadas foram, principalmente, Node.js com Express.js, utilizando Prisma ORM para se conectar com o banco de dados PostgreSQL. 
+
+Foi utilizado a estrutura da arquitetura multicamadas, utilizando princípios do clean code para melhor organização e clareza do código. Além disso, as validações de dados foi feita usando a biblioteca Joi e correções de erros com a biblioteca Http-status. Foi utilizado o eslint para manter um padrão de código seguindo o modelo do Airbnb.
 </p>
 
 <p align="right">(<a href="#top">Voltar para o topo</a>)</p>
