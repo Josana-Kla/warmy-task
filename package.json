@@ -14,13 +14,13 @@
     "back-end",
     "postgres",
     "express",
+    "prisma orm",
     "nodejs"
   ],
   "author": "Josana Klagenberg",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.16.0",
-    "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-status": "^1.6.2",
