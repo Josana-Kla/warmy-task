@@ -1,7 +1,9 @@
-import joi from 'joi'
+import joi from 'joi';
 
-export const taskSchema = joi.object({
+const taskSchema = joi.object({
   title: joi.string().required(),
   description: joi.string(),
-  status: joi.boolean().default(false)
-})
+  status: joi.boolean().default(false),
+});
+
+export default taskSchema;

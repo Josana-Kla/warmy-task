@@ -1,47 +1,47 @@
-import tasksRepository from "../repositories/tasks.repository.js"
-import { taskSchema } from "../schema/task.schema.js"
+import tasksRepository from '../repositories/tasks.repository.js';
+import taskSchema from '../schema/task.schema.js';
 
 function validateTaskSchema(task) {
-  const validation = taskSchema.validate(task, {abortEarly: false})
+  const validation = taskSchema.validate(task, { abortEarly: false });
 
-  if(validation.error) {
-    const error = validation.error.details.map(detail => detail.message)
-    throw error
-  } 
+  if (validation.error) {
+    const error = validation.error.details.map((detail) => detail.message);
+    throw error;
+  }
 }
 
 async function createTask(task) {
-  validateTaskSchema(task)
+  validateTaskSchema(task);
 
-  await tasksRepository.createTask(task)
+  await tasksRepository.createTask(task);
 }
 
 async function findAllTasks() {
-  const tasks = await tasksRepository.findAllTasks()
+  const tasks = await tasksRepository.findAllTasks();
 
-  return tasks
+  return tasks;
 }
 
 async function findTaskById(id) {
-  const taskById = await tasksRepository.findTaskById(id)
+  const taskById = await tasksRepository.findTaskById(id);
 
-  return taskById
+  return taskById;
 }
 
 async function updateTask(id, task) {
-  const taskExists = await tasksRepository.findTaskById(id)
-  validateTaskSchema(task)
+  const taskExists = await tasksRepository.findTaskById(id);
+  validateTaskSchema(task);
 
-  if(taskExists) {
-    await tasksRepository.updateTask(id, task)
+  if (taskExists) {
+    await tasksRepository.updateTask(id, task);
   }
 }
 
 async function deleteTask(id) {
-  const taskExists = await tasksRepository.findTaskById(id)
+  const taskExists = await tasksRepository.findTaskById(id);
 
-  if(taskExists) {
-    await tasksRepository.deleteTask(id)
+  if (taskExists) {
+    await tasksRepository.deleteTask(id);
   }
 }
 
@@ -51,6 +51,6 @@ const tasksService = {
   findTaskById,
   updateTask,
   deleteTask,
-}
+};
 
-export default tasksService
+export default tasksService;
